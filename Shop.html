@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SBmats.com</title>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+           <!-- Your existing HTML structure here -->
+
+    <!-- Sign-In Section -->
+    <section id="sign-in">
+        <h2>Sign In</h2>
+        <form id="signInForm">
+            <label for="signInUsername">Username:</label>
+            <input type="text" id="signInUsername" name="signInUsername" required>
+
+            <label for="signInPassword">Password:</label>
+            <input type="password" id="signInPassword" name="signInPassword" required>
+
+            <button type="button" onclick="signIn()">Sign In</button>
+        </form>
+    </section>
+
+    <!-- Wallet Section -->
+    <section id="wallet">
+        <h2>Wallet</h2>
+        <p id="walletBalance">Balance: $0.00</p>
+    </section>
+
+    <!-- Your existing HTML code continues... -->
+
+    <script src="script.js"></script>
+
+    <!-- Your existing script includes here -->
+
+
+    <!-- Your existing HTML code ... -->
+
+    <script src="script.js"></script>
+
+    <script>
+        function signIn() {
+            const username = document.getElementById("signInUsername").value;
+            const password = document.getElementById("signInPassword").value;
+
+            fetch('/api/signin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username, password }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById("sign-in").style.display = "none";
+                    document.getElementById("wallet").style.display = "block";
+
+                    // Fetch and display wallet balance
+                    fetchWalletBalance(username);
+                } else {
+                    alert("Sign-In failed. Please check your credentials.");
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        function fetchWalletBalance(username) {
+            fetch(`/api/wallet/${username}`)
+            .then(response => response.json())
+            .then(data => {
+                const walletBalanceElement = document.getElementById("walletBalance");
+                walletBalanceElement.textContent = `Balance: $${data.balance.toFixed(2)}`;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+        <section id="header">
+            <a href="#"><img src="1.png" class="logo" alt=""></a>
+
+            <div>
+                <ul id="navbar">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="https://tradgo.in/">Recharge Now</a></li>
+                    <li><a class="active" href="Shop.html">Shop</a></li>
+                    <li><a href="Shop.html">Blog</a></li>
+                    <li><a href="https://sbmats.com/">About</a></li>
+                    <li><a href="https://sbmats.com/">Contact</a></li>
+                    <li><a href="Shop.html"><i class="far fa-shopping-bag"></i></a></li>
+                </ul>
+            </div>
+        </section>
+        <section id="page-header">
+            
+            <h2><div id="stayhome"></div>
+            
+            <p>save more with coupons & up to 70% off!</p>
+            
+        </section>
+        
+        
+        <section id="product1" class="section-p1">
+           
+            <div class="pro-container">
+                
+                <div class="pro">
+                    <img src="sb2.jpg" alt="">
+                    <div class="des">
+                        <span>SBmats</span>
+                        <h5>Bamboo blinds</h5>
+                        <div class="star">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+
+                        </div>
+                        <h4>Rs.2500.00</h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+
+                </div>
+                <div class="pro">
+                    <img src="sb2.jpg" alt="">
+                    <div class="des">
+                        <span>SBmats</span>
+                        <h5>Bamboo blinds</h5>
+                        <div class="star">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+
+                        </div>
+                        <h4>Rs.2500.00</h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+
+                </div>
+                <div class="pro">
+                    <img src="sb2.jpg" alt="">
+                    <div class="des">
+                        <span>SBmats</span>
+                        <h5>Bamboo blinds</h5>
+                        <div class="star">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+
+                        </div>
+                        <h4>Rs.2500.00</h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+
+                </div>
+                <div class="pro">
+                    <img src="sb2.jpg" alt="">
+                    <div class="des">
+                        <span>SBmats</span>
+                        <h5>Bamboo blinds</h5>
+                        <div class="star">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+
+                        </div>
+                        <h4>Rs.2500.00</h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+
+                </div>
+                <div class="pro">
+                    <img src="sb2.jpg" alt="">
+                    <div class="des">
+                        <span>SBmats</span>
+                        <h5>Bamboo blinds</h5>
+                        <div class="star">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+
+                        </div>
+                        <h4>Rs.2500.00</h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+
+                </div>
+                <div class="pro">
+                    <img src="sb2.jpg" alt="">
+                    <div class="des">
+                        <span>SBmats</span>
+                        <h5>Bamboo blinds</h5>
+                        <div class="star">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+
+                        </div>
+                        <h4>Rs.2500.00</h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+
+                </div>
+                <div class="pro">
+                    <img src="sb2.jpg" alt="">
+                    <div class="des">
+                        <span>SBmats</span>
+                        <h5>Bamboo blinds</h5>
+                        <div class="star">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+
+                        </div>
+                        <h4>Rs.2500.00</h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+
+                </div>
+                <div class="pro">
+                    <img src="sb2.jpg" alt="">
+                    <div class="des">
+                        <span>SBmats</span>
+                        <h5>Bamboo blinds</h5>
+                        <div class="star">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+
+                        </div>
+                        <h4>Rs.2500.00</h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+
+                </div>
+                <div class="pro">
+                    <img src="sb2.jpg" alt="">
+                    <div class="des">
+                        <span>SBmats</span>
+                        <h5>Bamboo blinds</h5>
+                        <div class="star">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+
+                        </div>
+                        <h4>Rs.2500.00</h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+
+                </div>
+                <div class="pro">
+                    <img src="sb2.jpg" alt="">
+                    <div class="des">
+                        <span>SBmats</span>
+                        <h5>Bamboo blinds</h5>
+                        <div class="star">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+
+                        </div>
+                        <h4>Rs.2500.00</h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+
+                </div>
+                <div class="pro">
+                    <img src="sb2.jpg" alt="">
+                    <div class="des">
+                        <span>SBmats</span>
+                        <h5>Bamboo blinds</h5>
+                        <div class="star">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+
+                        </div>
+                        <h4>Rs.2500.00</h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+
+                </div>
+                <div class="pro">
+                    <img src="sb2.jpg" alt="">
+                    <div class="des">
+                        <span>SBmats</span>
+                        <h5>Bamboo blinds</h5>
+                        <div class="star">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+
+                        </div>
+                        <h4>Rs.2500.00</h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+
+                </div>
+                <div class="pro">
+                    <img src="sb2.jpg" alt="">
+                    <div class="des">
+                        <span>SBmats</span>
+                        <h5>Bamboo blinds</h5>
+                        <div class="star">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+
+                        </div>
+                        <h4>Rs.2500.00</h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+
+                </div>
+                <div class="pro">
+                    <img src="sb2.jpg" alt="">
+                    <div class="des">
+                        <span>SBmats</span>
+                        <h5>Bamboo blinds</h5>
+                        <div class="star">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+
+                        </div>
+                        <h4>Rs.2500.00</h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+
+                </div>
+                <div class="pro">
+                    <img src="sb2.jpg" alt="">
+                    <div class="des">
+                        <span>SBmats</span>
+                        <h5>Bamboo blinds</h5>
+                        <div class="star">
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+
+                        </div>
+                        <h4>Rs.2500.00</h4>
+                    </div>
+                    <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+
+                </div>
+                
+
+
+            </div>
+        </section>
+        <section id="pagination" class="section-p1">
+            <a href="#">1</a>
+            <a href="#">2</a>
+            <a href="#"><i class="fal fa-long-arrow-alt-right"></i></a>
+        </section>
+
+        <script src="script.js"></script>
+    </body>
+
+</html>
